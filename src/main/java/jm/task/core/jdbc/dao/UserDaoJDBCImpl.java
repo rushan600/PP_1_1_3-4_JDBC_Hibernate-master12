@@ -1,11 +1,7 @@
 package jm.task.core.jdbc.dao;
-
 import jm.task.core.jdbc.model.User;
 import jm.task.core.jdbc.util.Util;
-
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
 
 public class UserDaoJDBCImpl implements UserDao {
     private final Connection connection = Util.getConnection();
@@ -17,10 +13,7 @@ public class UserDaoJDBCImpl implements UserDao {
     public void createUsersTable() {
         try (Statement statement = connection.createStatement()) {
             statement.executeUpdate("CREATE TABLE IF NOT EXISTS new_schema.users" +
-                    "(id mediumint auto_increment primary key," +
-                    " name VARCHAR(50), " +
-                    "lastname VARCHAR(50), " +
-                    "age tinyint ) ");
+                    "(id mediumint auto_increment primary key, " +
             System.out.println("Таблица создана");
         } catch (SQLException e) {
             e.printStackTrace();
@@ -53,7 +46,6 @@ public class UserDaoJDBCImpl implements UserDao {
         try (Statement statement = connection.createStatement()) {
             String sql = "DELETE FROM new_schema.users where id";
             statement.executeUpdate(sql);
-            System.out.println("User удален");
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -88,7 +80,6 @@ public class UserDaoJDBCImpl implements UserDao {
             System.out.println("Таблица очищена");
         } catch (SQLException e) {
             e.printStackTrace();
-            System.out.println("Не удалось очистить");
         }
     }
 }
