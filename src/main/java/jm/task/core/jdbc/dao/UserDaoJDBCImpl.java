@@ -41,7 +41,6 @@ public class UserDaoJDBCImpl implements UserDao {
             preparedStatement.setString(2, lastName);
             preparedStatement.setByte(3, age);
             preparedStatement.executeUpdate();
-            System.out.println("User с именем – " + name + " добавлен в базу данных");
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -87,3 +86,25 @@ public class UserDaoJDBCImpl implements UserDao {
         }
     }
 }
+/*
+Main:
+
+Пользуйся не ДАО, а сервисом, в сервисе пользуешься ДАО, почитай про слои ДАО, сервис (паттерн MVC);
+После получения всех пользователей из БД должен быть вывод на консоль всех пользователей;
+
+соединение получать не нужно;
+
+UserServiceImpl:
+
+- UserDaoJDBCImpl u = new UserDaoJDBCImpl() - НЕправильно, работай на уровне абстракции,
+а не реализации, объявляй объект по типу интерфейса,
+например UserDao userDao = затем присваивай реализацию,
+добавь модификатор доступа, изучи полиморфизм и слабую связанность
+
+- не забывай про модификаторы доступа у полей класса;
+
+UserDaoJDBCImpl:
+
+Логика по выводу пользователей после сохранения в БД должна быть в сервисном слое,
+ДАО отвечает только за работу с БД;
+ */
