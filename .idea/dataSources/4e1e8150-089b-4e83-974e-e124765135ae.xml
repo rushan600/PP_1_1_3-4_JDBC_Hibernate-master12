@@ -1035,7 +1035,7 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
     </schema>
     <schema id="290" parent="1" name="new_schema">
       <Current>1</Current>
-      <LastIntrospectionLocalTimestamp>2024-12-26.09:50:32</LastIntrospectionLocalTimestamp>
+      <LastIntrospectionLocalTimestamp>2025-01-13.08:36:41</LastIntrospectionLocalTimestamp>
       <CollationName>utf8mb3_general_ci</CollationName>
     </schema>
     <schema id="291" parent="1" name="performance_schema">
@@ -1075,34 +1075,106 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <Host>localhost</Host>
       <Plugin>caching_sha2_password</Plugin>
     </user>
-    <table id="301" parent="290" name="users">
+    <table id="301" parent="290" name="book">
       <Engine>InnoDB</Engine>
       <CollationName>utf8mb3_general_ci</CollationName>
     </table>
-    <column id="302" parent="301" name="id">
-      <AutoIncrement>2</AutoIncrement>
+    <table id="302" parent="290" name="supply">
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8mb3_general_ci</CollationName>
+    </table>
+    <table id="303" parent="290" name="users">
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8mb3_general_ci</CollationName>
+    </table>
+    <column id="304" parent="301" name="book_id">
+      <AutoIncrement>8</AutoIncrement>
       <NotNull>1</NotNull>
       <Position>1</Position>
-      <StoredType>mediumint|0s</StoredType>
+      <StoredType>int|0s</StoredType>
     </column>
-    <column id="303" parent="301" name="name">
+    <column id="305" parent="301" name="title">
       <Position>2</Position>
       <StoredType>varchar(50)|0s</StoredType>
     </column>
-    <column id="304" parent="301" name="lastname">
+    <column id="306" parent="301" name="author">
       <Position>3</Position>
+      <StoredType>varchar(30)|0s</StoredType>
+    </column>
+    <column id="307" parent="301" name="price">
+      <Position>4</Position>
+      <StoredType>decimal(8,2 digit)|0s</StoredType>
+    </column>
+    <column id="308" parent="301" name="amount">
+      <Position>5</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <index id="309" parent="301" name="PRIMARY">
+      <ColNames>book_id</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <key id="310" parent="301" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <column id="311" parent="302" name="supply_id">
+      <AutoIncrement>4</AutoIncrement>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <column id="312" parent="302" name="title">
+      <Position>2</Position>
       <StoredType>varchar(50)|0s</StoredType>
     </column>
-    <column id="305" parent="301" name="age">
+    <column id="313" parent="302" name="author">
+      <Position>3</Position>
+      <StoredType>varchar(30)|0s</StoredType>
+    </column>
+    <column id="314" parent="302" name="price">
+      <Position>4</Position>
+      <StoredType>decimal(8,2 digit)|0s</StoredType>
+    </column>
+    <column id="315" parent="302" name="amount">
+      <Position>5</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <index id="316" parent="302" name="PRIMARY">
+      <ColNames>supply_id</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <key id="317" parent="302" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <column id="318" parent="303" name="id">
+      <AutoIncrement>1</AutoIncrement>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StoredType>bigint|0s</StoredType>
+    </column>
+    <column id="319" parent="303" name="name">
+      <Position>2</Position>
+      <StoredType>varchar(20)|0s</StoredType>
+    </column>
+    <column id="320" parent="303" name="lastName">
+      <Position>3</Position>
+      <StoredType>varchar(20)|0s</StoredType>
+    </column>
+    <column id="321" parent="303" name="age">
       <Position>4</Position>
       <StoredType>tinyint|0s</StoredType>
     </column>
-    <index id="306" parent="301" name="PRIMARY">
+    <index id="322" parent="303" name="PRIMARY">
       <ColNames>id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <key id="307" parent="301" name="PRIMARY">
+    <key id="323" parent="303" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
